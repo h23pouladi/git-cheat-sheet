@@ -51,20 +51,20 @@ stateDiagram-v2
 
 The three local areas of a Git repository, plus the Stash.
 
-```mermaid
+``````mermaid
 flowchart LR
-    WD[Working Directory]
-    SA[(Staging Area / Index)]
-    LR[(Local Repository)]
-    ST[(Stash)]
+WD[Working Directory]
+SA[(Staging Area / Index)]
+LR[(Local Repository)]
+ST[(Stash)]
 
-    WD -- git add --> SA
-    SA -- git restore --staged --> WD
-    WD -- git stash --> ST
-    ST -- git stash apply --> WD
-    SA -- git commit --> LR
-    LR -- git checkout --> WD
-```
+WD -->|"git add"| SA
+SA -->|"git restore --staged"| WD
+WD -->|"git stash"| ST
+ST -->|"git stash apply"| WD
+SA -->|"git commit"| LR
+LR -->|"git checkout"| WD
+
 
 ### Diagram 3 — Architecture / Complete Data Flow
 
