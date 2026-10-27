@@ -251,9 +251,8 @@ git clone <remote repository address>    # clone a remote repository locally
 | Commit changes | `git commit -m "message"` |
 | View history | `git log`, `git log --oneline`, `git log --stat` |
 | List / create branches | `git branch` / `git branch <branchname>` |
-| Switch branch (modern) | `git switch <branchname>` / `git switch -c <branchname>` |
-| Switch branch (classic) | `git checkout <branchname>` / `git checkout -b <branchname>` |
-
+| Switch branch (modern) | `git switch <branchname>` / `git switch -c <branchname>`|
+| Switch branch (classic) | `git checkout <branchname>` / `git checkout -b<branchname>`|
 | Merge branch into main | `git merge <branchname>` |
 | Rename / delete branch | `git branch -m old new` / `git branch -d <branch>` / `git branch -D <branch>` |
 | Go to a commit / return | `git checkout <hashcommit>` / `git checkout main` |
