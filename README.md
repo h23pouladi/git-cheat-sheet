@@ -70,18 +70,16 @@ Complete data flow between local and remote repositories.
 
 ```mermaid
 flowchart LR
-    WD[Working Directory]
-    SA[(Staging Area)]
-    LR[(Local Repository)]
-    RR[(Remote Repository)]
+WD[Working Directory]
+SA[(Staging Area)]
+LR[(Local Repository)]
+RR[(Remote Repository / GitHub)]
 
-    WD -- git add --> SA
-    SA -- git commit --> LR
-    WD -- git commit -a --> LR
-    LR -- git push --> RR
-    RR -- git fetch / git pull --> LR
-    LR -- git checkout --> WD
-    RR -- git clone --> WD
+WD -- "git add" --> SA
+SA -- "git commit" --> LR
+LR -- "git push" --> RR
+RR -- "git pull / fetch" --> LR
+RR -- "git clone" --> WD
 ```
 
 ### Diagram 4 — Git Command Flow
