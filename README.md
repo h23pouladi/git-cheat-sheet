@@ -9,8 +9,8 @@ A practical Git cheat sheet covering the complete file lifecycle, local workflow
 - [Diagrams](#diagrams)
   - [Diagram 1 — File Lifecycle / States](#diagram-1--file-lifecycle--states)
   - [Diagram 2 — Local Workflow](#diagram-2--local-workflow)
-  - [Diagram 3 — Architecture / Complete Data Flow](#diagram-3--architecture--complete-data-flow)
-  - [Diagram 4 — Git Command Flow](#diagram-4--git-command-flow)
+  - [Diagram 3 — Complete Data Flow (Local & Remote)](#diagram-3--complete-data-flow-local-remote)
+  - [Diagram 4 — Git Command Flow in a Work Cycle](#diagram-4--git-command-flow-in-a-work-cycle)
 - [Commands](#commands)
   - [Window & Help](#window--help)
   - [Configuration](#configuration)
@@ -64,7 +64,7 @@ ST -->|"git stash apply"| WD
 SA -->|"git commit"| LR
 ```
 
-### Diagram 3 — Architecture / Complete Data Flow
+### Diagram 3 — Complete Data Flow (Local & Remote)
 
 Data flow between local areas and GitHub (Remote).
 
@@ -82,7 +82,7 @@ RR -- "git pull / fetch" --> LR
 RR -- "git clone" --> WD
 ```
 
-### Diagram 4 — Git Command Flow
+### Diagram 4 — Git Command Flow in a Work Cycle
 
 A typical sequence of Git actions in one development day.
 
@@ -160,14 +160,16 @@ git log --stat                                   # log with more details per com
 ### Branching & Merging
 
 ```bash
-git branch                                    # list branches
-git branch <branchname>                       # create a branch
-git checkout <branchname>                     # switch to a branch (commit changes first!)
-git checkout -b <branchname>                  # create and switch in one step
-git merge <branchname>                        # merge a branch into the active (main/master) branch
-git branch -m <oldbranchname> <newbranchname> # rename a branch
-git branch -d <branchname>                    # delete a branch after merge
-git branch -D <branchname>                    # delete a branch before merge (force)
+git branch                                    # list local branches
+git branch <branchname>                       # create a new branch
+git switch <branchname>                       # switch to a branch (modern command)
+git switch -c <branchname>                    # create and switch in one step (modern)
+git checkout <branchname>                     # switch to a branch (classic command)
+git checkout -b <branchname>                  # create and switch in one step (classic)
+git merge <branchname>                        # merge a branch into the active branch
+git branch -m <oldname> <newname>             # rename a branch
+git branch -d <branchname>                    # delete a branch safely (after merge)
+git branch -D <branchname>                    # delete a branch forcefully
 ```
 
 ### Undoing Changes
@@ -249,7 +251,9 @@ git clone <remote repository address>    # clone a remote repository locally
 | Commit changes | `git commit -m "message"` |
 | View history | `git log`, `git log --oneline`, `git log --stat` |
 | List / create branches | `git branch` / `git branch <branchname>` |
-| Switch branch (create + switch) | `git checkout <branchname>` / `git checkout -b <branchname>` |
+| Switch branch (modern) | `git switch <branchname>` / `git switch -c <branchname>` |
+| Switch branch (classic) | `git checkout <branchname>` / `git checkout -b <branchname>` |
+
 | Merge branch into main | `git merge <branchname>` |
 | Rename / delete branch | `git branch -m old new` / `git branch -d <branch>` / `git branch -D <branch>` |
 | Go to a commit / return | `git checkout <hashcommit>` / `git checkout main` |
