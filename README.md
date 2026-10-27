@@ -28,23 +28,22 @@ A practical Git cheat sheet covering the complete file lifecycle, local workflow
 
 ---
 
+
 ## Diagrams
 
 ### Diagram 1 — File Lifecycle / States
 
-How a file moves between Git's four states.
-
+How a file moves between Git's main states.
 ```mermaid
 stateDiagram-v2
-    [*] --> Untracked: create new file
-    Untracked --> Unmodified: git add (track)
-    Untracked --> Staged: git add
-    Unmodified --> Modified: edit the file
-    Modified --> Staged: git add
-    Modified --> Unmodified: git restore (discard changes)
-    Staged --> Unmodified: git commit
-    Unmodified --> [*]: git rm (delete file)
-    Staged --> Untracked: git restore --staged
+[*] --> Untracked: create new file
+Untracked --> Staged: git add
+Unmodified --> Modified: edit the file
+Modified --> Staged: git add
+Modified --> Unmodified: git restore (discard changes)
+Staged --> Unmodified: git commit
+Unmodified --> [*]: git rm (delete file)
+Staged --> Untracked: git restore --staged (unstage)
 ```
 
 ### Diagram 2 — Local Workflow
