@@ -48,7 +48,7 @@ Staged --> Untracked: git restore --staged (unstage)
 
 ### Diagram 2 — Local Workflow
 
-The three local areas of a Git repository, plus the Stash.
+The three local areas of a Git repository, plus Stash.
 
 ```mermaid
 flowchart LR
@@ -66,7 +66,7 @@ SA -->|"git commit"| LR
 
 ### Diagram 3 — Architecture / Complete Data Flow
 
-Complete data flow between local and remote repositories.
+Data flow between local areas and GitHub (Remote).
 
 ```mermaid
 flowchart LR
@@ -84,25 +84,22 @@ RR -- "git clone" --> WD
 
 ### Diagram 4 — Git Command Flow
 
-A typical sequence of Git actions in one work cycle.
+A typical sequence of Git actions in one development day.
 
 ```mermaid
-sequenceDiagram
-    actor Dev as Developer
-    participant WD as Working Directory
-    participant SA as Staging Area
-    participant LR as Local Repository
-    participant RR as Remote Repository
+ sequenceDiagram
+actor Dev as Developer
+participant WD as Working Directory
+participant SA as Staging Area
+participant LR as Local Repository
+participant RR as Remote Repository
 
-    Dev->>WD: edit files
-    Dev->>WD: git status (check changes)
-    Dev->>SA: git add .
-    Dev->>LR: git commit -m "message"
-    Dev->>LR: git log --oneline (review history)
-    Dev->>RR: git push origin main
-    RR-->>Dev: changes are on GitHub
-    Dev->>RR: git pull (get teammates' changes)
-    RR-->>LR: fetched & merged
+Dev->>WD: edit files
+Dev->>WD: git status
+Dev->>SA: git add .
+Dev->>LR: git commit -m "feat: add feature"
+Dev->>RR: git push origin main
+RR-->>Dev: sync successful
 ```
 
 ---
